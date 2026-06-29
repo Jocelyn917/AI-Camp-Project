@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cozy Cattery Cafe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell" aria-label="Cozy Cattery Cafe game">
+    <header class="top-bar">
+      <div>
+        <p class="eyebrow">Cozy Cattery Cafe</p>
+        <h1>Feed, pet, and cheer up every cafe cat.</h1>
+      </div>
+      <div class="tool-tray" aria-label="Interaction tools">
+        <button class="tool-button active" type="button" data-tool="pet" aria-pressed="true">Pet</button>
+        <button class="tool-button" type="button" data-tool="feed" aria-pressed="false">Feed</button>
+        <button class="sound-toggle" type="button" aria-pressed="true">Sound On</button>
+      </div>
+    </header>
+
+    <section class="cafe" id="cafe" aria-label="Cafe play area">
+      <div class="wall-art">Mew &amp; Brew</div>
+      <div class="window" aria-hidden="true">
+        <span class="sun"></span>
+        <span class="cloud one"></span>
+        <span class="cloud two"></span>
+      </div>
+
+      <button class="object bowl" type="button" data-object="bowl" aria-label="Food bowl"><span></span></button>
+      <button class="object yarn" type="button" data-object="yarn" aria-label="Yarn toy"></button>
+      <button class="object pillow" type="button" data-object="pillow" aria-label="Soft pillow"></button>
+      <button class="object plant" type="button" data-object="plant" aria-label="Cafe plant"><span></span></button>
+      <button class="object treats" type="button" data-object="treats" aria-label="Treat jar"><span></span></button>
+
+      <div class="counter" aria-hidden="true"><span class="mug"></span><span class="cake"></span></div>
+      <div class="cat-layer" id="catLayer" aria-live="polite"></div>
+      <div class="feedback-layer" id="feedbackLayer" aria-hidden="true"></div>
+    </section>
+
+    <aside class="status-panel">
+      <p class="eyebrow">Cafe Board</p>
+      <h2>Cat Mood</h2>
+      <div class="stats-grid" id="statsGrid"></div>
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
