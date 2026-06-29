@@ -39,22 +39,22 @@ const catModal = document.createElement("section");
 catModal.className = "cat-modal";
 catModal.setAttribute("aria-hidden", "true");
 catModal.innerHTML =
-  "<div class="cat-room" role="dialog" aria-modal="true" aria-labelledby="modalCatName">" +
-    "<button class="back-cafe" type="button">Back to Cafe</button>" +
-    "<div class="cat-spotlight">" +
-      "<div class="detail-cat" id="detailCat">" +
-        "<span class="detail-tail"></span><span class="detail-body"></span><span class="detail-marking"></span>" +
-        "<span class="detail-head"><span class="detail-face"></span><span class="whiskers left"></span><span class="whiskers right"></span></span>" +
-        "<span class="detail-paw left"></span><span class="detail-paw right"></span>" +
-      "</div>" +
-      "<div class="modal-feedback" id="modalFeedback" aria-live="polite"></div>" +
-    "</div>" +
-    "<aside class="cat-room-panel">" +
-      "<p class="eyebrow">Cat corner</p><h2 id="modalCatName"></h2><p id="modalMood"></p>" +
-      "<div id="modalStats"></div>" +
-      "<div class="modal-actions"><button type="button" data-cat-action="feed">Feed</button><button type="button" data-cat-action="pet">Pet</button><button type="button" data-cat-action="play">Play</button></div>" +
-    "</aside>" +
-  "</div>";
+  '<div class="cat-room" role="dialog" aria-modal="true" aria-labelledby="modalCatName">' +
+    '<button class="back-cafe" type="button">Back to Cafe</button>' +
+    '<div class="cat-spotlight">' +
+      '<div class="detail-cat" id="detailCat">' +
+        '<span class="detail-tail"></span><span class="detail-body"></span><span class="detail-marking"></span>' +
+        '<span class="detail-head"><span class="detail-face"></span><span class="whiskers left"></span><span class="whiskers right"></span></span>' +
+        '<span class="detail-paw left"></span><span class="detail-paw right"></span>' +
+      '</div>' +
+      '<div class="modal-feedback" id="modalFeedback" aria-live="polite"></div>' +
+    '</div>' +
+    '<aside class="cat-room-panel">' +
+      '<p class="eyebrow">Cat corner</p><h2 id="modalCatName"></h2><p id="modalMood"></p>' +
+      '<div id="modalStats"></div>' +
+      '<div class="modal-actions"><button type="button" data-cat-action="feed">Feed</button><button type="button" data-cat-action="pet">Pet</button><button type="button" data-cat-action="play">Play</button></div>' +
+    '</aside>' +
+  '</div>';
 document.body.appendChild(catModal);
 
 const detailCat = document.querySelector("#detailCat");
@@ -73,33 +73,33 @@ function getCatById(id) {
 
 function renderCats() {
   catLayer.innerHTML = cats.map(function(cat) {
-    return "<button class="cat " + cat.mood + "" type="button" data-cat-id="" + cat.id + "" aria-label="Open " + cat.name + " interaction screen" style="--x: " + cat.x + "; --y: " + cat.y + "; --fur: " + cat.fur + "; --marking: " + cat.marking + ";">" +
-      "<span class="bubble">" + cat.name + "</span>" +
-      "<span class="cat-tail"></span>" +
-      "<span class="cat-body"></span>" +
-      "<span class="cat-marking"></span>" +
-      "<span class="cat-head"><span class="cat-face"></span></span>" +
-    "</button>";
+    return '<button class="cat ' + cat.mood + '" type="button" data-cat-id="' + cat.id + '" aria-label="Open ' + cat.name + ' interaction screen" style="--x: ' + cat.x + '; --y: ' + cat.y + '; --fur: ' + cat.fur + '; --marking: ' + cat.marking + ';">' +
+      '<span class="bubble">' + cat.name + '</span>' +
+      '<span class="cat-tail"></span>' +
+      '<span class="cat-body"></span>' +
+      '<span class="cat-marking"></span>' +
+      '<span class="cat-head"><span class="cat-face"></span></span>' +
+    '</button>';
   }).join("");
 }
 
 function renderStats() {
   statsGrid.innerHTML = cats.map(function(cat) {
-    return "<article class="cat-card">" +
-      "<h3><span>" + cat.name + "</span><span>" + cat.mood + "</span></h3>" +
+    return '<article class="cat-card">' +
+      '<h3><span>' + cat.name + '</span><span>' + cat.mood + '</span></h3>' +
       statRow("Hunger", cat.hunger, "#e98991") +
       statRow("Happy", cat.happiness, "#ffd166") +
       statRow("Love", cat.affection, "#8ab17d") +
-    "</article>";
+    '</article>';
   }).join("");
 
   if (activeCatId) renderModalStats();
 }
 
 function statRow(label, value, color) {
-  return "<div class="stat-row"><span>" + label + "</span>" +
-    "<span class="meter" style="--meter-color: " + color + ";"><span style="--value: " + value + "%;"></span></span>" +
-    "<span>" + value + "</span></div>";
+  return '<div class="stat-row"><span>' + label + '</span>' +
+    '<span class="meter" style="--meter-color: ' + color + ';"><span style="--value: ' + value + '%;"></span></span>' +
+    '<span>' + value + '</span></div>';
 }
 
 function setActiveTool(nextTool) {
